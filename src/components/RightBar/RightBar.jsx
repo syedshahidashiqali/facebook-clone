@@ -2,7 +2,7 @@ import "./RightBar.css";
 
 function RightBar() {
     return (
-        <div>
+        <div className="rightBar">
             RightBar
         </div>
     )
