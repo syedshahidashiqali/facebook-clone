@@ -1,7 +1,7 @@
 import "./RightBar.css";
 import { Users } from "../../dummyData";
 import Online from "../Online/Online";
-function RightBar() {
+function RightBar({profile}) {
   
   // RightBar for Home Page
   const HomeRightBar = () => {
@@ -77,7 +77,7 @@ function RightBar() {
   return (
     <div className="rightBar">
       <div className="rightBarWrapper">
-          <ProfileRightBar />
+        {profile ? <ProfileRightBar /> : <HomeRightBar />}
       </div>
     </div>
   );
