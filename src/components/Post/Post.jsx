@@ -5,6 +5,8 @@ import { useState } from "react";
 
 
 function Post({ post }) {
+
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     // post matching user logic
     // const a = Users.filter((user) => user.id === post.id)
     // console.log(a[0].username)
@@ -30,12 +32,12 @@ function Post({ post }) {
                 </div>
                 <div className="postCenter">
                     <span className="postText">{post?.desc}</span>
-                    <img className="postImg" src={post.photo} alt="" />
+                    <img className="postImg" src={PF+post.photo} alt="" />
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
-                        <img className="likeIcon" onClick={likeHandler} src="/assets/like.png" alt="" />
-                        <img className="likeIcon" onClick={likeHandler} src="/assets/heart.png" alt="" />
+                        <img className="likeIcon" onClick={likeHandler} src={`${PF}/like.png`} alt="" />
+                        <img className="likeIcon" onClick={likeHandler} src={`${PF}/heart.png`} alt="" />
                         <span className="postLikeCounter">{like} people liked it</span>
                     </div>
                     <div className="postBottomRight">
