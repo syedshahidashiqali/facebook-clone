@@ -9,9 +9,10 @@ function Feed() {
     const [ posts, setPosts ] = useState([]);
 
     useEffect(() => {
+        const url = "http://localhost:5000/api/v1";
         const fetchPosts = async() => {
-            const res = await axios.get("http://localhost:5000/api/v1/posts/timeline/61b5f26629cf719d838f08e3");
-            console.log(res);
+            const res = await axios.get(`${url}/posts/timeline/61b5f26629cf719d838f08e3`);
+            setPosts(res.data)
         };
         fetchPosts();
     },[])
@@ -19,9 +20,9 @@ function Feed() {
         <div className="feed">
             <div className="feedWrapper">
                 <Share />
-                {/* {Posts.map((post) => (
-                    <Post key={post.id} post={post} />
-                ))} */}
+                {posts.map((post) => (
+                    <Post key={post._id} post={post} />
+                ))}
             </div>
         </div>
     )
