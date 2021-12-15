@@ -1,10 +1,13 @@
 import "./TopBar.css";
 import { Search, Person, Chat, Notifications } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 function TopBar() {
     return (
         <div className="topBarContainer">
             <div className="topBarLeft">
-                <span className="logo">Facebook</span>
+                <Link to="/" style={{ textDecoration: "none" }}>
+                    <span className="logo">Facebook</span>
+                </Link>
             </div>
             <div className="topBarCenter">
                 <div className="searchBar">
