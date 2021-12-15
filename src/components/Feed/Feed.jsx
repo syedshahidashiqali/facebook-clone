@@ -4,14 +4,16 @@ import Post from "../Post/Post";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function Feed() {
+function Feed({ username }) {
 
     const [ posts, setPosts ] = useState([]);
 
     useEffect(() => {
         const url = "http://localhost:5000/api/v1";
         const fetchPosts = async() => {
-            const res = await axios.get(`${url}/posts/timeline/61b5f26629cf719d838f08e3`);
+            const res = username 
+            ? await axios.get(`${url}/posts/profile/${username}`)
+            : await axios.get(`${url}/posts/timeline/61b5f26629cf719d838f08e3`);
             setPosts(res.data)
         };
         fetchPosts();
