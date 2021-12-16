@@ -24,7 +24,7 @@ function Post({ post }) {
     useEffect(() => {
         const url = "http://localhost:5000/api/v1";
         const fetchUser = async() => {
-            const res = await axios.get(`${url}/users/${post.userId}`);
+            const res = await axios.get(`${url}/users?userId=${post.userId}`);
             setUser(res.data);
 
         };
