@@ -19,7 +19,6 @@ function Login() {
         loginCall({email: emailRef.current.value, password:passwordRef.current.value},dispatch);
     };
 
-    console.log(user)
     return (
         <div className="login">
             <div className="loginWrapper">
