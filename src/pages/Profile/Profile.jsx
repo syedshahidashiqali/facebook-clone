@@ -22,7 +22,7 @@ function Profile() {
 
         };
         fetchUser();
-    },[user]);
+    },[username]);
 
     return (
         <div>
