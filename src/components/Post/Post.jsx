@@ -1,13 +1,14 @@
 import './Post.css';
 import { MoreVert } from "@mui/icons-material";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from 'axios';
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
+import { AuthContext } from '../../context/AuthContext';
 
 
 function Post({ post }) {
-
+    const url = "http://localhost:5000/api/v1";
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     // post matching user logic
     // const a = Users.filter((user) => user.id === post.id)
@@ -15,14 +16,22 @@ function Post({ post }) {
     const [ like, setLike ] = useState(post.likes.length);
     const [ isLiked, setIsLiked ] = useState(false);
     const [ user, setUser ] = useState({});
+    const { user: currentUser } = useContext(AuthContext);
 
     const likeHandler = () => {
+        try{
+            axios.put(`${url}/posts/${post._id}/like`, { userId: currentUser._id });
+        } catch(err){
+            console.log(err);
+        }
         setLike(isLiked ? like -1 : like + 1);
         setIsLiked(!isLiked);
     };
 
     useEffect(() => {
-        const url = "http://localhost:5000/api/v1";
+        setIsLiked(post.likes.includes(currentUser._id))
+    }, [currentUser._id])
+    useEffect(() => {
         const fetchUser = async() => {
             const res = await axios.get(`${url}/users?userId=${post.userId}`);
             setUser(res.data);
@@ -37,7 +46,7 @@ function Post({ post }) {
                 <div className="postTop">
                     <div className="postTopLeft">
                         <Link to={`/profile/${user.username}`}>
-                            <img className="postProfileImg" src={user.profilePicture || PF+"/person/noAvatar.png"} alt="" />
+                            <img className="postProfileImg" src={user.profilePicture ? `${PF}${user.profilePicture}` : `${PF}/person/noAvatar.png`} alt="" />
                         </Link>
                         <span className="postUsername">{user.username}</span>
                         <span className="postDate">{format(post.createdAt)}</span>
