@@ -19,7 +19,7 @@ function Feed({ username }) {
             setPosts(res.data)
         };
         fetchPosts();
-    },[username, user._id])
+    },[username, user._id, posts])
     return (
         <div className="feed">
             <div className="feedWrapper">
