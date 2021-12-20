@@ -16,10 +16,12 @@ function Feed({ username }) {
             const res = username 
             ? await axios.get(`${url}/posts/profile/${username}`)
             : await axios.get(`${url}/posts/timeline/${user._id}`);
-            setPosts(res.data)
+            setPosts(res.data.sort((post1, post2) => {
+                return new Date(post2.createdAt) - new Date(post1.createdAt);
+            }));
         };
         fetchPosts();
-    },[username, user._id, posts])
+    },[username, user._id]);
     return (
         <div className="feed">
             <div className="feedWrapper">

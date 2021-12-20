@@ -28,6 +28,7 @@ function Share() {
 
             try{
                 await axios.post(`${url}/upload`, data);
+                window.location.reload();
             } catch(err){
                 console.log(err);
             }
