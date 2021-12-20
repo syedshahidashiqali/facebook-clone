@@ -50,26 +50,6 @@ function RightBar({ user }) {
                   <img className="rightBarFollowingImg" src={`${PF}person/1.jpeg`} alt="" />
                   <span className="rightBarFollowingName">John Carter</span>
               </div>
-              <div className="rightBarFollowing">
-                  <img className="rightBarFollowingImg" src={`${PF}person/2.jpeg`} alt="" />
-                  <span className="rightBarFollowingName">John Carter</span>
-              </div>
-              <div className="rightBarFollowing">
-                  <img className="rightBarFollowingImg" src={`${PF}person/3.jpeg`} alt="" />
-                  <span className="rightBarFollowingName">John Carter</span>
-              </div>
-              <div className="rightBarFollowing">
-                  <img className="rightBarFollowingImg" src={`${PF}person/4.jpeg`} alt="" />
-                  <span className="rightBarFollowingName">John Carter</span>
-              </div>
-              <div className="rightBarFollowing">
-                  <img className="rightBarFollowingImg" src={`${PF}person/5.jpeg`} alt="" />
-                  <span className="rightBarFollowingName">John Carter</span>
-              </div>
-              <div className="rightBarFollowing">
-                  <img className="rightBarFollowingImg" src={`${PF}person/6.jpeg`} alt="" />
-                  <span className="rightBarFollowingName">John Carter</span>
-              </div>
           </div>
           </>
       );
