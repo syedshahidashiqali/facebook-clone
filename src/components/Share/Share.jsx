@@ -18,6 +18,21 @@ function Share() {
             description: descriptionRef.current.value,
         };
 
+        if(file){
+            const data = new FormData();
+            const fileName = Date.now() + file.name;
+            data.append("name", fileName);
+            data.append("file", file);
+            newPost.image = fileName;
+            console.log(newPost);
+
+            try{
+                await axios.post(`${url}/upload`, data);
+            } catch(err){
+                console.log(err);
+            }
+        }
+
         try{
             await axios.post(`${url}/posts`, newPost);
             descriptionRef.current.value = "";
