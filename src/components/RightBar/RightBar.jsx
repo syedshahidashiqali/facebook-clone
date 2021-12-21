@@ -5,19 +5,44 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
-import { Add } from "@mui/icons-material";
+import { Add, Remove } from "@mui/icons-material";
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+const url = "http://localhost:5000/api/v1";
 
 function RightBar({ user }) {
 
   const { user:currentUser } = useContext(AuthContext);
+  const [ followed, setFollowed ] = useState(false);
+  console.log(17, followed)
+
+  useEffect(() => {
+    setFollowed(currentUser.followings.includes(user?._id));
+    console.log(21, currentUser.followings.includes(user?._id))
+  }, [currentUser, user?._id]);
+  console.log(23, followed)
+  const handleClick = async () => {
+    try {
+      if (followed) {
+        await axios.put(`${url}/users/${user?._id}/unfollow`, {
+          userId: currentUser?._id,
+        });
+      } else {
+        await axios.put(`${url}/users/${user?._id}/follow`, {
+          userId: currentUser?._id,
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+    setFollowed(!followed);
+  };
+  console.log(40, followed)
 
   const [ friends, setFriends ] = useState([]);
 
   useEffect(() => {
     const getFriends = async() => {
-      const url = "http://localhost:5000/api/v1";
       try{
         const res = await axios.get(`${url}/users/friends/${user?._id}`);
         setFriends(res.data);
@@ -54,8 +79,9 @@ function RightBar({ user }) {
       return(
           <>
           {user?.username !== currentUser?.username && (
-            <button className="rightBarFollowButton">
-              Follow <Add />
+            <button className="rightBarFollowButton" onClick={handleClick}>
+              { followed ? "Unfollow" : "Follow" }
+              { followed ? <Remove /> : <Add /> }
             </button>
           )}
           <h4 className="rightBarTitle">User Information</h4>
