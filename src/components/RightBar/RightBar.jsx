@@ -12,12 +12,12 @@ const url = "http://localhost:5000/api/v1";
 
 function RightBar({ user }) {
 
-  const { user:currentUser } = useContext(AuthContext);
-  const [ followed, setFollowed ] = useState(false);
+  const { user:currentUser, dispatch } = useContext(AuthContext);
+  const [ followed, setFollowed ] = useState(currentUser.followings.includes(user?._id));
 
-  useEffect(() => {
-    setFollowed(currentUser.followings.includes(user?._id));
-  }, [currentUser, user?._id]);
+  // useEffect(() => {
+  //   setFollowed();
+  // }, [currentUser, user?._id]);
 
   const handleClick = async () => {
     try {
@@ -25,10 +25,12 @@ function RightBar({ user }) {
         await axios.put(`${url}/users/${user?._id}/unfollow`, {
           userId: currentUser?._id,
         });
+        dispatch({ type: "UNFOLLOW", payload: user._id });
       } else {
         await axios.put(`${url}/users/${user?._id}/follow`, {
           userId: currentUser?._id,
         });
+        dispatch({ type: "FOLLOW", payload: user._id });
       }
     } catch (err) {
       console.log(err);
