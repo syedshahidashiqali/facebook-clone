@@ -1,13 +1,17 @@
 import "./RightBar.css";
 import { Users } from "../../dummyData";
 import Online from "../Online/Online";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
+import { Add } from "@mui/icons-material";
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
 function RightBar({ user }) {
+
+  const { user:currentUser } = useContext(AuthContext);
 
   const [ friends, setFriends ] = useState([]);
 
@@ -49,6 +53,11 @@ function RightBar({ user }) {
   const ProfileRightBar = ()    => {
       return(
           <>
+          {user?.username !== currentUser?.username && (
+            <button className="rightBarFollowButton">
+              Follow <Add />
+            </button>
+          )}
           <h4 className="rightBarTitle">User Information</h4>
           <div className="rightBarInfo">
               <div className="rightBarInfoItem">
