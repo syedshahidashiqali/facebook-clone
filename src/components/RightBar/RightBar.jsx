@@ -14,13 +14,11 @@ function RightBar({ user }) {
 
   const { user:currentUser } = useContext(AuthContext);
   const [ followed, setFollowed ] = useState(false);
-  console.log(17, followed)
 
   useEffect(() => {
     setFollowed(currentUser.followings.includes(user?._id));
-    console.log(21, currentUser.followings.includes(user?._id))
   }, [currentUser, user?._id]);
-  console.log(23, followed)
+
   const handleClick = async () => {
     try {
       if (followed) {
@@ -37,7 +35,6 @@ function RightBar({ user }) {
     }
     setFollowed(!followed);
   };
-  console.log(40, followed)
 
   const [ friends, setFriends ] = useState([]);
 
