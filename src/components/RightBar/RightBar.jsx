@@ -32,10 +32,10 @@ function RightBar({ user }) {
         });
         dispatch({ type: "FOLLOW", payload: user._id });
       }
+      setFollowed(!followed);
     } catch (err) {
       console.log(err);
     }
-    setFollowed(!followed);
   };
 
   const [ friends, setFriends ] = useState([]);
