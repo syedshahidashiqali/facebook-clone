@@ -15,9 +15,9 @@ function RightBar({ user }) {
   const { user:currentUser, dispatch } = useContext(AuthContext);
   const [ followed, setFollowed ] = useState(currentUser.followings.includes(user?._id));
 
-  // useEffect(() => {
-  //   setFollowed();
-  // }, [currentUser, user?._id]);
+  useEffect(() => {
+    setFollowed(currentUser.followings.includes(user?._id));
+  }, [currentUser, user?._id]);
 
   const handleClick = async () => {
     try {
