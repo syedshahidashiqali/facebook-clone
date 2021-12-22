@@ -8,7 +8,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { Add, Remove } from "@mui/icons-material";
 
 const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-const url = "http://localhost:5000/api/v1";
+const url = "https://social-app-backend.vercel.app/api/v1";
 
 function RightBar({ user }) {
 

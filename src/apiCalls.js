@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "http://localhost:5000/api/v1";
+const url = "https://social-app-backend.vercel.app/api/v1";
 
 export const loginCall = async(userCredential, dispatch) => {
      dispatch({type: "LOGIN_START"});

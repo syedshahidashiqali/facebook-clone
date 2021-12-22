@@ -11,7 +11,7 @@ function Feed({ username }) {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        const url = "http://localhost:5000/api/v1";
+        const url = "https://social-app-backend.vercel.app/api/v1";
         const fetchPosts = async() => {
             const res = username 
             ? await axios.get(`${url}/posts/profile/${username}`)

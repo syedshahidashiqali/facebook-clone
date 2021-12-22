@@ -8,7 +8,7 @@ import { AuthContext } from '../../context/AuthContext';
 
 
 function Post({ post }) {
-    const url = "http://localhost:5000/api/v1";
+    const url = "https://social-app-backend.vercel.app/api/v1";
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     // post matching user logic
     // const a = Users.filter((user) => user.id === post.id)

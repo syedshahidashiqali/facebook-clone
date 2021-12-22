@@ -15,7 +15,7 @@ function Profile() {
     const { username } = useParams();
     
     useEffect(() => {
-        const url = "http://localhost:5000/api/v1";
+        const url = "https://social-app-backend.vercel.app/api/v1";
         const fetchUser = async() => {
             const res = await axios.get(`${url}/users?username=${username}`);
             setUser(res.data);
