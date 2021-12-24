@@ -11,7 +11,7 @@ function Feed({ username }) {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        const url = "https://social-app-backend.vercel.app/api/v1";
+        const url = "https://mern-social-media-api.herokuapp.com/api/v1";
         const fetchPosts = async() => {
             const res = username 
             ? await axios.get(`${url}/posts/profile/${username}`)

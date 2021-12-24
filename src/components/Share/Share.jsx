@@ -5,7 +5,7 @@ import { useContext, useRef, useState } from "react";
 import axios from "axios";
 
 function Share() {
-    const url = "https://social-app-backend.vercel.app/api/v1";
+    const url = "https://mern-social-media-api.herokuapp.com/api/v1";
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const { user } = useContext(AuthContext);
     const descriptionRef = useRef();

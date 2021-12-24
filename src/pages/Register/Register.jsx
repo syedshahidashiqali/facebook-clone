@@ -13,7 +13,7 @@ function Register() {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        const url = "https://social-app-backend.vercel.app/api/v1";
+        const url = "https://mern-social-media-api.herokuapp.com/api/v1";
         if(passwordRef.current.value !== passwordAgainRef.current.value){
             passwordAgainRef.current.setCustomValidity("Password don't match!")
         } else{
