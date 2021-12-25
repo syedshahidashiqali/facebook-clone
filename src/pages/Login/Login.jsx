@@ -48,7 +48,7 @@ function Login() {
                         <button disabled={isFetching} className="loginButton">{isFetching ? <CircularProgress color="inherit" /> : "Log In"}</button>
                         <span className="loginForgot">Forgot Password?</span>
                         <Link to="/register" style={{ textDecoration: "none", textAlign:"center" }}>
-                            <button disabled={isFetching} className="loginRegisterButton">{isFetching ? <CircularProgress color="inherit" /> : "Create a New Account"}</button>
+                            <button disabled={isFetching} className="loginRegisterButton">Create a New Account</button>
                         </Link>
                     </form>
                 </div>
