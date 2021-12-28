@@ -99,3 +99,28 @@
     border-radius: 50%;
     object-fit: cover;
 }
+
+@media screen and (max-width: 1250px) {
+    .topBarContainer{
+        background-color: red;
+    }
+    .topBarCenter{
+        display: none;
+    }
+    .topBarLeft {
+        flex: 0.5;
+    } 
+    
+    .topBarRight{
+        flex: 1.5;
+    }
+}
+
+@media screen and (max-width: 515px) {
+    .topBarContainer{
+        background-color: purple;
+    }
+    .topBarLink {
+        display: none;
+    }
+}
