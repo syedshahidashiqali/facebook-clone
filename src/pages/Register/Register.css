@@ -82,3 +82,21 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+@media screen and (max-width: 800px) {
+    .signup{
+        /* background-color: red; */
+        width: 100%;
+        height: 100%;
+    }
+    .signupWrapper{
+        width: 80%;
+        height: 80%;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+    }
+    .signupLeft, .signupRight {
+        flex: 1;
+    }
+}
