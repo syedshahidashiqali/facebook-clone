@@ -9,6 +9,11 @@ function TopBar() {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const { user } = useContext(AuthContext);
 
+    const clickHandler = () => {
+        localStorage.setItem("user", null);
+        window.location.reload();
+    };
+
     return (
         <div className="topBarContainer">
             <div className="topBarLeft">
@@ -26,6 +31,7 @@ function TopBar() {
                 <div className="topBarLinks">
                     <span className="topBarLink">Homepage</span>
                     <span className="topBarLink">Timeline</span>
+                    <span className="topBarLink" onClick={clickHandler}>Logout</span>
                 </div>
                 <div className="topBarIcons">
                     <div className="topBarIconItem">

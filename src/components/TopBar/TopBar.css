@@ -22,7 +22,7 @@
 }
 
 .topBarCenter {
-    flex: 5;
+    flex: 4;
 }
 
 .searchBar {
@@ -48,7 +48,7 @@
     outline: none;
 }
 .topBarRight {
-    flex: 4;
+    flex: 5;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -58,6 +58,12 @@
 .topBarLink {
     margin-right: 10px;
     font-size: 14px;
+    cursor: pointer;
+}
+
+.topBarLink:hover{
+    transition: all 100ms ease-in-out;
+    border-bottom: 2px solid white;
     cursor: pointer;
 }
 
